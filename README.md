@@ -97,3 +97,5 @@ django project. We will be putting it into our django project at some point.
 ### Normal Mode
 
 Add the ability to create a review for an existing movie.
+
+Adding a random thing
