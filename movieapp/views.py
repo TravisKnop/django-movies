@@ -7,9 +7,7 @@ from movieapp.models import Data, Rater
 
 
 class IndexView(View):
-
-    def index(self):
-        HttpResponse("hello?")
+    model = Data
 
 
 class DataListView(ListView):
