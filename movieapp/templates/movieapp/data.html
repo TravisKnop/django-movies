@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+"""
+{% block content %}
+    <h1>Data List View</h1>
+    {% for movie in object_list %}
+        <div>
+            <a href="{% 'userid' movie.id %}"
+                {{ movie.body }} ({{ movie.itemid }})
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+"""
+
