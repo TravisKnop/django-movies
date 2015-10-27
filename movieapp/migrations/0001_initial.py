@@ -11,11 +11,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Data',
+            name='Movie',
             fields=[
                 ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
-                ('userid', models.IntegerField()),
-                ('itemid', models.IntegerField()),
+                ('raterid', models.IntegerField()),
+                ('movieid', models.IntegerField()),
                 ('rating', models.IntegerField()),
                 ('timestamp', models.DateTimeField()),
                 ('moviename', models.CharField(max_length=100)),
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             name='Rater',
             fields=[
                 ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
-                ('userid', models.CharField(max_length=20)),
+                ('raterid', models.CharField(max_length=20)),
                 ('age', models.IntegerField()),
                 ('gender', models.CharField(max_length=1)),
                 ('occupation', models.CharField(max_length=20)),
