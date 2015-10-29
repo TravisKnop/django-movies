@@ -18,10 +18,14 @@ from django.contrib import admin
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from movieapp.views import IndexView, DataListView
+from movieapp.views import home_view, MovieList, MovieDetail, RaterList, RaterDetail, MovieRating
 
 urlpatterns = [
-    url(r"^$", IndexView.as_view(), name="index"),
-    url(r'^data/$', DataListView.as_view(), name='dataview'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', home_view, name='home'),
+    url(r'^movies/$', MovieList.as_view(), name='movie_list'),
+    url(r'^movies/(?P<pk>\d+)/$', MovieDetail.as_view(), name='movie_detail'),
+    url(r'^raters/$', RaterList.as_view(), name='rater_list'),
+    url(r'^raters/(?P<pk>\d+)/$', RaterDetail.as_view(), name='rater_detail'),
+    url(r'^movie_rating/$', MovieRating.as_view(), name='movie_rating')
 ]
