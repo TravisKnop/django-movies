@@ -13,23 +13,31 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Movie',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('raterid', models.IntegerField()),
                 ('movieid', models.IntegerField()),
                 ('rating', models.IntegerField()),
-                ('timestamp', models.DateTimeField()),
-                ('moviename', models.CharField(max_length=100)),
+                ('timestamp', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
             name='Rater',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('raterid', models.CharField(max_length=20)),
                 ('age', models.IntegerField()),
                 ('gender', models.CharField(max_length=1)),
                 ('occupation', models.CharField(max_length=20)),
                 ('zipcode', models.IntegerField()),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Rating',
+            fields=[
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('rating', models.IntegerField()),
+                ('rated_movie', models.IntegerField()),
+                ('rater', models.ForeignKey(to='movieapp.Rater')),
             ],
         ),
     ]

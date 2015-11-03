@@ -1,5 +1,5 @@
 import pandas as pd
-from movieapp.models import Movie, Rater, Ratings
+from movieapp.models import Movie, Rater, Rating
 
 
 def load_data(apps, schema_editor):
@@ -11,7 +11,7 @@ def load_data(apps, schema_editor):
             rating = row[1].rating
             movieid = row[1].movieid
             raterid = row[1].raterid
-            Review.objects.create(movieid=Movie.objects.get(movieid=movieid), raterid=Rater.objects.get(raterid=raterid), rating=rating)
+            Rating.objects.create(movieid=Movie.objects.get(movieid=movieid), raterid=Rater.objects.get(raterid=raterid), rating=rating)
 
 def load_movie(apps, schema_editor):
     movie_df = pd.read_csv("~/Downloads/ml-100k/u.item", sep='|', encoding="ISO-8859-1",

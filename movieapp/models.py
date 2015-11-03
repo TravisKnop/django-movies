@@ -1,5 +1,6 @@
 from django.db import models
 import numpy as np
+import pandas as pd
 
 # Create your models here.
 
@@ -13,6 +14,9 @@ class Movie(models.Model):
     @property
     def ave_rating(self):
         return np.mean(self.rating_set.all())
+
+    def __str__(self):
+        return str(self.id)
 
 
 # renamed from u.user:

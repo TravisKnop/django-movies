@@ -12,18 +12,22 @@ def home_view(request):
 
 class MovieList(ListView):
     model = Movie
+    template = "movie_list.html"
 
 
 class MovieDetail(DetailView):
     model = Movie
+    template = "movie_detail.html"
 
 
 class RaterList(ListView):
     model = Rater
+    template = "rater_list.html"
 
 
 class RaterDetail(DetailView):
     model = Rater
+    template = "movie_detail.html"
 
 
 class MovieRating(CreateView):
