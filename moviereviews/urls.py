@@ -18,7 +18,7 @@ from django.contrib import admin
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from movieapp.views import home_view, MovieList, MovieDetail, RaterList, RaterDetail, MovieRating
+from movieapp.views import home_view, MovieList, MovieDetail, RaterList, RaterDetail
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,5 +27,4 @@ urlpatterns = [
     url(r'^movies/(?P<pk>\d+)/$', MovieDetail.as_view(), name='movie_detail'),
     url(r'^raters/$', RaterList.as_view(), name='rater_list'),
     url(r'^raters/(?P<pk>\d+)/$', RaterDetail.as_view(), name='rater_detail'),
-    url(r'^movie_rating/$', MovieRating.as_view(), name='movie_rating')
 ]

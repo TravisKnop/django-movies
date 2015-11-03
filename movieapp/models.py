@@ -6,7 +6,7 @@ import numpy as np
 
 class Movie(models.Model):
     title = models.CharField(max_length=100)
-    released = models.IntegerField()
+    released = models.CharField(max_length=20)
 
     @property
     def ave_rating(self):
@@ -21,7 +21,7 @@ class Rater(models.Model):
     age = models.IntegerField()
     gender = models.CharField(max_length=5)
     occupation = models.CharField(max_length=20)
-    zipcode = models.IntegerField()
+    zipcode = models.CharField(max_length=10)
 
 
 class Rating(models.Model):
