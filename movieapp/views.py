@@ -1,6 +1,6 @@
-from django.views.generic import View, CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView
 from django.http import HttpResponse
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render_to_response
 from movieapp.models import Movie, Rater, Rating
 
 # Create your views here.
@@ -30,31 +30,12 @@ class RaterDetail(DetailView):
     template = "movie_detail.html"
 
 
-class MovieRating(CreateView):
-    model = Rating
-    fields = ['rater', 'rated_movie', 'rating']
-    success_url = '/'
-
-"""class DataListView(ListView):
-    model = Movie
-    template_name = "base.html"
-
-    def data(self):
-        context = {}
-        raterid = request.GET.get("raterid")
-        movieid = request.GET.get("movieid")
-        rating = request.GET.get("rating")
-        timestamp = request.GET.get("timestamp")
-        return render_to_response(template_name="movieapp/data.html", context=context)
-
-"""
-
-#def index_view(request):
-    #movies = sorted(Movie.objects.all(), key=lambda x x.avg_rating, reverse=True)
-    #context = {'movies': movies [0:20]}
+# class MovieRating(CreateView):
+#    model = Rating
+#    fields = ['rater', 'rated_movie', 'rating']
+#    success_url = '/'
 
 
-""" class MovieListView(ListView):
-        model = Movie
-        template_name = "data.html"
-"""
+# def index_view(request):
+    # movies = sorted(Movie.objects.all(), key=lambda x x.avg_rating, reverse=True)
+    # context = {'movies': movies [0:20]}

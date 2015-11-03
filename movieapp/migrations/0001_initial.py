@@ -13,20 +13,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Movie',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
-                ('raterid', models.IntegerField()),
-                ('movieid', models.IntegerField()),
-                ('rating', models.IntegerField()),
-                ('timestamp', models.IntegerField()),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('title', models.CharField(max_length=100)),
+                ('released', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
             name='Rater',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
-                ('raterid', models.CharField(max_length=20)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('age', models.IntegerField()),
-                ('gender', models.CharField(max_length=1)),
+                ('gender', models.CharField(max_length=5)),
                 ('occupation', models.CharField(max_length=20)),
                 ('zipcode', models.IntegerField()),
             ],
@@ -34,9 +31,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
                 ('rating', models.IntegerField()),
-                ('rated_movie', models.IntegerField()),
+                ('rated_movie', models.ForeignKey(to='movieapp.Movie')),
                 ('rater', models.ForeignKey(to='movieapp.Rater')),
             ],
         ),

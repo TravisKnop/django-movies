@@ -1,15 +1,12 @@
 from django.db import models
 import numpy as np
-import pandas as pd
 
 # Create your models here.
 
 
 class Movie(models.Model):
-    raterid = models.IntegerField()
-    movieid = models.IntegerField()
-    rating = models.IntegerField()
-    timestamp = models.IntegerField()
+    title = models.CharField(max_length=100)
+    released = models.IntegerField()
 
     @property
     def ave_rating(self):
@@ -21,14 +18,13 @@ class Movie(models.Model):
 
 # renamed from u.user:
 class Rater(models.Model):
-    raterid = models.CharField(max_length=20)
     age = models.IntegerField()
-    gender = models.CharField(max_length=1)
+    gender = models.CharField(max_length=5)
     occupation = models.CharField(max_length=20)
     zipcode = models.IntegerField()
 
 
 class Rating(models.Model):
     rating = models.IntegerField()
-    rated_movie = models.IntegerField()
+    rated_movie = models.ForeignKey(Movie)
     rater = models.ForeignKey(Rater)
