@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
 
-</body>
-</html>
+{% block content %}
+    <br/>
+<h1> {{ object.title }} </h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-default">x
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <h3">Movie ID: {{ object.id }}</h3>
+                    <h4>Release Date: {{ object.released }}</h4>
+                    <h4>Rating: {{ object.ave_rating }}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
