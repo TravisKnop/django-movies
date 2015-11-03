@@ -1,42 +1,56 @@
-from django.views.generic import View, TemplateView, ListView, DetailView
+from django.views.generic import View, CreateView, ListView, DetailView
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
-from movieapp.models import Data, Rater
+from movieapp.models import Movie, Rater, Rating
 
 # Create your views here.
 
 
-class IndexView(View):
-    model = Data
+def home_view(request):
+    return render_to_response(template_name='base.html', context={})
 
 
-class DataListView(ListView):
-    model = Data
+class MovieList(ListView):
+    model = Movie
+
+
+class MovieDetail(DetailView):
+    model = Movie
+
+
+class RaterList(ListView):
+    model = Rater
+
+
+class RaterDetail(DetailView):
+    model = Rater
+
+
+class MovieRating(CreateView):
+    model = Rating
+    fields = ['rater', 'rated_movie', 'rating']
+    success_url = '/'
+
+"""class DataListView(ListView):
+    model = Movie
     template_name = "base.html"
 
     def data(self):
         context = {}
-        userid = request.GET.get("userid")
-        itemid = request.GET.get("itemid")
+        raterid = request.GET.get("raterid")
+        movieid = request.GET.get("movieid")
         rating = request.GET.get("rating")
         timestamp = request.GET.get("timestamp")
         return render_to_response(template_name="movieapp/data.html", context=context)
 
-
-# renamed from u.user:
-# class Rater(models.Model):
-#    userid = models.CharField(max_length=20)
-#    age = models.IntegerField()
-#    gender = models.CharField(max_length=1)
-#    occupation = models.CharField(max_length=20)
-#    zipcode = models.IntegerField()
+"""
 
 #def index_view(request):
-    #movies = sorted(Data.objects.all(), key=lambda x x.avg_rating, reverse=True)
+    #movies = sorted(Movie.objects.all(), key=lambda x x.avg_rating, reverse=True)
     #context = {'movies': movies [0:20]}
 
 
 """ class MovieListView(ListView):
-        model = Data
+        model = Movie
         template_name = "data.html"
 """

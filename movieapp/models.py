@@ -26,5 +26,5 @@ class Rater(models.Model):
 
 class Rating(models.Model):
     rating = models.IntegerField()
-    rated_movie = models.ForeignKey(Movie)
+    rated_movie = models.IntegerField()
     rater = models.ForeignKey(Rater)
