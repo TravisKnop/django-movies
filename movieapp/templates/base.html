@@ -10,10 +10,9 @@
 
 <body>
 
-    <div class="container">
+  <div class="container">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
            <div class="navbar-header">
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                   data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -37,23 +36,19 @@
     {% block content %}
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <h2>Top 20 Movies</h2>
-                    </div>
-                    <div class="panel-body">
-                        {% for movie in top_20 %}
-                        <p>
-                           <a href="{% url 'movie_detail' movie.id %}">
-                               {{ movie }}: {{ movie.new_avg_rating|floatformat:4 }}
-                           </a>
-                        </p>
-                        {% endfor %}
-                    </div>
+                <div class="panel-heading">
+                    <h2>Top 20 Movies</h2>
+                </div>
+                <div class="panel-body">
+                    {% for movie in top_20 %}
+                        <p><a href="{% url 'movie_detail' movie.id %}">
+                           {{ movie }}: {{ movie.ave_rating|floatformat:2 }}
+                        </a></p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     {% endblock %}
-    </div>
+  </div>
 </body>
 </html>
