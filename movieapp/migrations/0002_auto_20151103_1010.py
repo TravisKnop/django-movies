@@ -15,5 +15,5 @@ class Migration(migrations.Migration):
 
         migrations.RunPython(load_rater),
 
-        migrations.RunPython(load_data)
+        migrations.RunPython(load_data),
 ]
