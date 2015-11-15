@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 
 {% block content %}
     <br/>
@@ -10,7 +11,7 @@
                 <div class="panel-body">
                     <h3">Movie ID: {{ object.id }}</h3>
                     <h4>Release Date: {{ object.released }}</h4>
-                    <h4>Rating: {{ object.ave_rating }}</h4>
+                    <h4>Average Rating: {{ object.ave_rating }} / 5</h4>
                 </div>
             </div>
         </div>
