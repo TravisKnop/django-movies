@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-primary">
+                <h2>Top 20 Movies</h2>
+            </div>
+            <div class="panel-body">
+                {{ context }}
+                    <p>
+                        <a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}: {{ movie.ave_rating }}
+                        </a>
+                    </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

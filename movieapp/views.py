@@ -1,13 +1,14 @@
 from django.views.generic import CreateView, ListView, DetailView
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from movieapp.models import Movie, Rater, Rating
+from movieapp.models import Movie, Rater, RatingManager
 
 # Create your views here.
 
 
 def home_view(request):
-    return render_to_response(template_name='base.html', context={})
+    return render_to_response(template_name='index.html',
+                              context={"twenty_best": RatingManager.twenty_best})
 
 
 class MovieList(ListView):

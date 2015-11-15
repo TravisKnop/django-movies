@@ -32,26 +32,8 @@
            </div>
         </div>
     </nav>
-
     {% block content %}
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-heading">
-                    <h2>Top 20 Movies</h2>
-                </div>
-                <div class="panel-body">
-                Hello everybody!
-                <div>{{ movie.say_hi }}</div>
-                    {% for movie in twenty_best %}
-                        Hi?
-                        <p><a href="{% url 'movie_detail' movie.id %}">
-                           {{ movie }}: {{ movie.ave_rating|floatformat:2 }}
-                        </a></p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    {% endblock %}
+    {%  endblock %}
   </div>
 </body>
 </html>

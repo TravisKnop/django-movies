@@ -10,8 +10,10 @@ class RatingManager(models.Manager):
 
     @property
     def twenty_best(self):
-        print("these are twenty?")
-        return sorted(self.rating_set.all().ave_rating, key=lambda x: x.ave_rating, reverse=True)[:20]
+        top_movies = []
+        for movie in Movie.objects.all():
+            top_movies.append(movie)
+        return sorted(top_movies, key=lambda x: x.ave_rating, reverse=True)[:20]
 
 
 # from u.item:
@@ -20,14 +22,14 @@ class Movie(models.Model):
     released = models.CharField(max_length=20)
 
 #    objects = RatingManager()
-
-    @property
-    def say_hi(self):
-        print("HI")
-
     @property
     def ave_rating(self):
-        return np.mean(self.rating_set.all().values_list('rating', flat=True))
+        ave_score =  np.mean(self.rating_set.all().values_list('rating', flat=True))
+        return "%.2f" % ave_score
+
+    @property
+    def num_ratings(self):
+        return len(self.rating_set.all().values_list('rating', flat=True))
 
     def __str__(self):
         return str(self.id)
